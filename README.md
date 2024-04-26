@@ -13,7 +13,7 @@ tone.
 
 _i.e., What is gestational diabetes
 and how is it diagnosed?_
-![Alt Text](/Results/Healthcare ChatBot.png)
+![Alt Text](/Results/Healthcare%20ChatBot.png)
 #### Installation Guide
 - Python
 - Run pip install to install dependencies listed in `./requirements.txt` and establish a virtual environment `./env`.
