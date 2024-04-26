@@ -4,6 +4,13 @@ import os
 
 # setup config
 def load_config():
+    """
+       Loads OpenAI API key from 'conf.ini' and sets it as an environment variable.
+
+       Raises:
+           FileNotFoundError: If 'conf.ini' is missing.
+           KeyError: If 'OPEN_API_KEY' is not found in 'conf.ini'.
+       """
     config = configparser.ConfigParser()
     config.read('conf.ini')
     open_api_key = config['KEY']['OPEN_API_KEY']
@@ -12,6 +19,11 @@ def load_config():
 
 # setup logging
 def setup_logging():
+    """
+        Configures logging to a file and logs initialization and environment info.
+
+        Logs initialization status and the value of OPEN_API_KEY environment variable.
+        """
     logging.basicConfig(
         filename='app.log',  # Log to a file
         filemode='a',  # Append to the existing log file

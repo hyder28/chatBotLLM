@@ -15,9 +15,15 @@ if submit_button:
         try:
             result = get_response(user_input)
             ans = result["answer"]
-            source_metadatas = {doc.metadata["source"] for doc in result["context"]}
-            source_metadatas = ";".join(str(source) for source in source_metadatas)
-            response = f"{ans}\n\nRefer to:\n{source_metadatas}"
+
+            source_set = set([doc.metadata["source"] for doc in result["context"]])
+
+            source_text = ""
+            for source in source_set:
+                source_text += source + "\n"
+
+            response = f"{ans}\n\nSource:\n{source_text}"
+
             st.text_area("LLM ChatBot says:", value=response, height=600)
         except Exception as e:
             logging.error(f"Error in generating response: {str(e)}")
